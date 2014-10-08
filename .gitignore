@@ -16,8 +16,8 @@ master/buildbot.tac
 master/*.log
 master/*.pid
 master/*.sqlite*
-master/authmaster.py
+master/config.py
 
-*.sample
+master/master.cfg.sample
 
 slave/
