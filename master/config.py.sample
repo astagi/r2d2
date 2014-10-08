@@ -11,6 +11,8 @@ MAIL_RECIPIENTS = ["stagi.andrea@gmail.com"]
 
 REPOSITORY="git@github.com:test/test.git"
 
+APP_NAME = "AppBeer"
+
 RELEASE_STEP = "./gradlew release;"
 MAKE_STEP = "./gradlew assembleDebug;"
 TEST_STEP = "./gradlew test;"
