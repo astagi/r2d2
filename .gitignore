@@ -10,6 +10,7 @@ master/gitpoller-workdir
 master/nightly
 master/weekly
 master/continuously
+master/release
 master/public_html
 master/templates
 master/buildbot.tac
