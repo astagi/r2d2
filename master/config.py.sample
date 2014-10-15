@@ -6,17 +6,21 @@ SLAVE_PSW="pass"
 
 MAIL_USER="dunno@gmail.com"
 MAIL_PSW="dunno"
-
 MAIL_RECIPIENTS = ["stagi.andrea@gmail.com"]
-
-REPOSITORY="git@github.com:test/test.git"
+MAIL_USE_TLS=True
+MAIL_SMTP_HOST="smtp.gmail.com"
+MAIL_SMTP_PORT=587
 
 APP_NAME = "AppBeer"
+REPOSITORY="git@github.com:test/test.git"
 
-RELEASE_STEP = "./gradlew release;"
 MAKE_STEP = "./gradlew assembleDebug;"
 TEST_STEP = "./gradlew test;"
 
 ANDROID_HOME = "/Users/dunno/android-sdk"
 
+BUILDBOT_HOST = 'testcustomhost'
 BUILDBOT_PORT = 8010
+
+HIPCHAT_TOKEN = 'myhipchattoken'
+HIPCHAT_ROOMS = ['myhipchatroom']
