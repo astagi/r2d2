@@ -19,7 +19,7 @@ TEST_STEP = "./gradlew test;"
 
 ANDROID_HOME = "/Users/dunno/android-sdk"
 
-BUILDBOT_HOST = 'testcustomhost'
+BUILDBOT_HOST = 'http://testcustomhost'
 BUILDBOT_PORT = 8010
 
 HIPCHAT_TOKEN = 'myhipchattoken'
