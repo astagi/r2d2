@@ -62,16 +62,16 @@ c['schedulers'].append(ForceScheduler(
 c['schedulers'].append(timed.Nightly(name='sch_nightly',
     branch='develop',
     builderNames=['nightly'],
-    hour=2,
-    minute=55,
+    hour=config.NIGHTLY_TIME[0],
+    minute=config.NIGHTLY_TIME[1],
     onlyIfChanged=True))
 
 c['schedulers'].append(timed.Nightly(name='sch_weekly',
     branch='develop',
     builderNames=['weekly'],
-    dayOfWeek=4,
-    hour=6,
-    minute=55,
+    dayOfWeek=config.WEEKLY[2],
+    hour=config.WEEKLY_TIME[0],
+    minute=config.WEEKLY_TIME[1],
     onlyIfChanged=True))
 
 ####### BUILDERS
