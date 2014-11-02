@@ -17,6 +17,8 @@ REPOSITORY="git@github.com:test/test.git"
 MAKE_STEP = "./gradlew assembleDebug;"
 TEST_STEP = "./gradlew test;"
 
+BUILD_LOCATION = "./build/outputs/apk/build-debug.apk"
+
 ANDROID_HOME = "/Users/dunno/android-sdk"
 
 BUILDBOT_HOST = 'http://testcustomhost'

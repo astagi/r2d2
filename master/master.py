@@ -102,7 +102,7 @@ def get_release_step(type):
     new_build_path = '../../../builds/{}_%(prop:gitversion)s_{}_{}.apk'.format(config.APP_NAME,
         type, strftime('%Y%m%d', gmtime()))
 
-    return ShellCommand(command=[ 'cp', './build/outputs/apk/build-debug.apk',
+    return ShellCommand(command=[ 'cp', config.BUILD_LOCATION,
                                  Interpolate(new_build_path)])
 
 def get_changelog_step(type):
