@@ -91,7 +91,7 @@ git_fetch_step = Git(
 
 export_sdk_cmd = 'export ANDROID_HOME={};'.format(config.ANDROID_HOME)
 export_sdk_step = ShellCommand(command=export_sdk_cmd)
-make_step = ShellCommand(command=export_sdk_cmd+config.MAKE_STEP)
+make_step = ShellCommand(command=export_sdk_cmd+config.PRE_MAKE_STEP+config.MAKE_STEP)
 test_step = ShellCommand(command=export_sdk_cmd+config.TEST_STEP)
 
 update_rev_step = shell.SetProperty(command='git rev-parse HEAD', property='gitlastrev')
