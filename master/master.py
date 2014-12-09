@@ -112,8 +112,8 @@ def get_changelog_step(type):
     command_add_return = 'echo "" >> ../../../changes/{}changes.log;'.format(type)
     changelog_cmd = command_init
     if type != 'continuously':
-        changelog_cmd += 'echo "BUILD: {}:{}/{}" >> ../../../changes/{}changes.log;'.format(config.BUILDBOT_HOST, config.BUILDSLIST_PORT,
-            build_apk, type)
+        changelog_cmd += 'echo "BUILD: {}:{}/{}" >> ../../../changes/{}changes.log;'.format(config.BUILDBOT_HOST,
+            config.BUILDSLIST_PORT, build_apk, type)
         changelog_cmd += command_add_return
     else:
         changelog_cmd += 'echo "BRANCH: $(git branch | sed -e \'s/^* //\')" >> ../../../changes/{}changes.log;'.format(type)
@@ -220,7 +220,8 @@ def messageFormatter(mode, name, build, results, master_status):
     result = Results[results]
     text = list()
     text.append("STATUS: %s" % result.title())
-    text.append(open('../changes/{}changes.log'.format(name), 'r').read())
+    if results == 0:
+        text.append(open('../changes/{}changes.log'.format(name), 'r').read())
     build_url = 'Read more: {}:{}/builders/{}/builds/{}'.format(config.BUILDBOT_HOST, config.BUILDBOT_PORT,
         name, build.getNumber())
     text.append(build_url)
@@ -244,7 +245,10 @@ mn = MailNotifier(fromaddr=config.MAIL_USER,
 c['status'].append(mn)
 
 def get_additional_info(builderName, build, result):
-    return open('../changes/{}changes.log'.format(builderName), 'r').read()
+    if result == 0:
+        return open('../changes/{}changes.log'.format(builderName), 'r').read()
+    else:
+        return ''
 
 for room in config.HIPCHAT_ROOMS:
     c['status'].append(hipchat.HipChatStatusPush(config.HIPCHAT_TOKEN, room,
